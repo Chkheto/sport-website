@@ -1,0 +1,50 @@
+<nav class="navbar">
+  <div class="navbar-brand"><h2>basketball Mini Explorer</h2></div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/countries" routerLinkActive="active" class="nav-link">Countries</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/leagues" routerLinkActive="active" class="nav-link">Leagues</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/fixtures" routerLinkActive="active" class="nav-link">Fixtures</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/teams" routerLinkActive="active" class="nav-link">Teams</a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/h2h" routerLinkActive="active" class="nav-link">H2H</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/livescore" routerLinkActive="active" class="nav-link">Livescore</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/standings" routerLinkActive="active" class="nav-link">Standings</a>
+    </li>
+    <!-- <li class="nav-item">
+      <a routerLink="/odds" routerLinkActive="active" class="nav-link">Odds</a>
+    </li> -->
+    <!-- <li class="nav-item">
+      <a routerLink="/players" routerLinkActive="active" class="nav-link">Players</a> 
+    </li> -->
+    <!-- 500 (Internal Server Error) -->
+
+    <li class="nav-item" *ngIf="!isLoggedIn()">
+      <a routerLink="/sign-in" routerLinkActive="active" class="nav-link">log-in</a>
+    </li>
+    <li class="nav-item" *ngIf="!isLoggedIn()">
+      <a routerLink="/authentication" routerLinkActive="active" class="nav-link">Sign-up</a>
+    </li>
+    <li class="nav-item" *ngIf="isLoggedIn()">
+      <a class="nav-link" style="cursor: pointer" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</nav>
+<main class="app-container">
+  <router-outlet></router-outlet>
+</main>

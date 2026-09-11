@@ -1,0 +1,12 @@
+<div class="livescore">
+  <h2>Live Scores</h2>
+  <div *ngIf="error">{{ error }}</div>
+  <div *ngIf="loading">Loading...</div>
+  <ul *ngIf="!loading && !error">
+    <li *ngFor="let score of livescores">
+      {{ score.event_date }} {{ score.event_time }} - {{ score.event_home_team }} vs
+      {{ score.event_away_team }} ({{ score.league_name }})
+      <span *ngIf="score.event_live == '1'">LIVE</span>
+    </li>
+  </ul>
+</div>

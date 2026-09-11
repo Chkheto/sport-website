@@ -1,0 +1,48 @@
+<div class="h2h">
+  <h2>Head to Head</h2>
+  <form class="h2h-form">
+    <div class="form-group">
+      <label for="firstTeam">First Team ID:</label>
+      <input id="firstTeam" type="text" [(ngModel)]="firstTeamId" name="firstTeamId" />
+    </div>
+    <div class="form-group">
+      <label for="secondTeam">Second Team ID:</label>
+      <input id="secondTeam" type="text" [(ngModel)]="secondTeamId" name="secondTeamId" />
+    </div>
+    <button type="button" (click)="getH2H()">Get H2H</button>
+  </form>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="result">
+    <div class="h2h-section">
+      <h3>H2H Results</h3>
+      <ul>
+        <li *ngFor="let game of result.H2H">
+          <span class="date">{{ game.event_date }}</span>
+          <span class="teams">{{ game.event_home_team }} vs {{ game.event_away_team }}</span>
+          <span class="score">({{ game.event_final_result }})</span>
+        </li>
+      </ul>
+    </div>
+    <div class="h2h-section">
+      <h3>First Team Recent Results</h3>
+      <ul>
+        <li *ngFor="let game of result.firstTeamResults">
+          <span class="date">{{ game.event_date }}</span>
+          <span class="teams">{{ game.event_home_team }} vs {{ game.event_away_team }}</span>
+          <span class="score">({{ game.event_final_result }})</span>
+        </li>
+      </ul>
+    </div>
+    <div class="h2h-section">
+      <h3>Second Team Recent Results</h3>
+      <ul>
+        <li *ngFor="let game of result.secondTeamResults">
+          <span class="date">{{ game.event_date }}</span>
+          <span class="teams">{{ game.event_home_team }} vs {{ game.event_away_team }}</span>
+          <span class="score">({{ game.event_final_result }})</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

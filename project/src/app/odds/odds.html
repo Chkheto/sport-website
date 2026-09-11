@@ -1,0 +1,36 @@
+<div class="odds">
+  <h2>All Odds</h2>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <table *ngIf="odds && !loading" border="1">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Market</th>
+        <th>Bookmaker</th>
+        <th>Outcome</th>
+        <th>Odds</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngFor="let event of odds | keyvalue">
+        <ng-container *ngFor="let market of event.value | keyvalue">
+          <ng-container *ngFor="let outcome of market.value | keyvalue">
+            <ng-container *ngFor="let book of outcome.value | keyvalue">
+              <tr>
+                <td>{{ event.key }}</td>
+                <td>{{ market.key }}</td>
+                <td>{{ book.key }}</td>
+                <td>{{ outcome.key }}</td>
+                <td>{{ book.value }}</td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

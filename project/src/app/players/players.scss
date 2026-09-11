@@ -1,0 +1,108 @@
+.players {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+
+  h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .loading {
+    color: #2980b9;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .error {
+    color: #c00;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .player-card {
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .player-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+    }
+
+    .player-team {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .player-stats {
+      list-style: none;
+      padding: 0;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid #eee;
+        color: #34495e;
+
+        .label {
+          font-weight: 500;
+          color: #2980b9;
+        }
+
+        .value {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    max-width: 98vw;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .player-card {
+      padding: 1rem;
+
+      .player-name {
+        font-size: 1.1rem;
+      }
+
+      .player-stats li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

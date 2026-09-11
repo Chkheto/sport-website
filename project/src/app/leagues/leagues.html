@@ -1,0 +1,27 @@
+<div class="leagues">
+  <h2>Leagues</h2>
+  
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div>
+    <label for="country">Filter by Country:</label>
+    <select id="country" [(ngModel)]="selectedCountry" (change)="loadLeagues()">
+      <option value="">All</option>
+      <option *ngFor="let country of countries" [value]="country.country_key">
+        {{ country.country_name }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading leagues...</div>
+
+
+  <ul *ngIf="!loading && leagues.length">
+    <li *ngFor="let league of leagues">
+      {{ league.league_name }} ({{ league.country_name }})
+    </li>
+  </ul>
+
+  <div *ngIf="!loading && !leagues.length">No leagues found.</div>
+</div>

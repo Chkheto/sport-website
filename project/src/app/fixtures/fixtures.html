@@ -1,0 +1,36 @@
+<div class="fixtures">
+  <h2>Fixtures</h2>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <form class="fixtures-form">
+    <div class="form-group">
+      <label for="from">From:</label>
+      <input id="from" type="date" [(ngModel)]="from" name="from" (change)="loadFixtures()" />
+    </div>
+    <div class="form-group">
+      <label for="to">To:</label>
+      <input id="to" type="date" [(ngModel)]="to" name="to" (change)="loadFixtures()" />
+    </div>
+  </form>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div class="fixtures-list" *ngIf="!loading && !error">
+    <div *ngFor="let fixture of fixtures" class="fixture-card">
+      <div class="fixture-header">
+        <span class="fixture-date">{{ fixture.event_date }} {{ fixture.event_time }}</span>
+        <span class="fixture-league">{{ fixture.league_name }}</span>
+      </div>
+      <div class="fixture-teams">
+        <span class="home-team">{{ fixture.event_home_team }}</span>
+        <span class="vs">vs</span>
+        <span class="away-team">{{ fixture.event_away_team }}</span>
+      </div>
+      <div class="fixture-status">
+        <span
+          >Status: <strong>{{ fixture.event_status }}</strong></span
+        >
+        <span *ngIf="fixture.event_final_result"
+          >Final: <strong>{{ fixture.event_final_result }}</strong></span
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+.odds {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  h3 {
+    margin-top: 1rem;
+    color: #34495e;
+    font-size: 1.3rem;
+    text-align: left;
+  }
+  h4 {
+    margin-top: 0.5rem;
+    color: #2980b9;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    th,
+    td {
+      border: 1px solid #eee;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    th {
+      background: #f5f5f5;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    td {
+      font-size: 1.05rem;
+      color: #34495e;
+      background: #f9fbfc;
+      transition: background 0.2s;
+    }
+    tr:nth-child(even) td {
+      background: #f1f6fa;
+    }
+    tr.outcome-row {
+      td:first-child {
+        font-weight: bold;
+        color: #2980b9;
+        background: #eaf6ff;
+        border-right: 2px solid #2980b9;
+      }
+    }
+    td.odds-value {
+      font-weight: 500;
+      color: #16a085;
+      background: #e8f8f5;
+      border-radius: 4px;
+    }
+  }
+  label {
+    margin-right: 0.5rem;
+    color: #2980b9;
+  }
+  input {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-bottom: 1rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 4px;
+    background: #2980b9;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    &:hover {
+      background: #3498db;
+    }
+  }
+  div {
+    margin: 1rem 0;
+    color: #c00;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    max-width: 98vw;
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3,
+    h4 {
+      font-size: 1rem;
+    }
+    table {
+      font-size: 0.95rem;
+      th,
+      td {
+        padding: 0.3rem;
+      }
+    }
+    label,
+    input,
+    button {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

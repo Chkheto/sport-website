@@ -1,0 +1,68 @@
+<div class="teams">
+  <h2>Teams</h2>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="filter">
+    <label for="league">Select League:</label>
+    <select id="league" [(ngModel)]="selectedLeagueId" (change)="getTeams()">
+      <option value="">All Leagues</option>
+      <option *ngFor="let league of leagues" [value]="league.league_key">
+        {{ league.league_name }} ({{ league.country_name }})
+      </option>
+    </select>
+  </div>
+
+  <div class="search" *ngIf="teams.length">
+    <label for="search">Search by Team Name:</label>
+    <input
+      id="search"
+      type="text"
+      placeholder="Type to search..."
+      [(ngModel)]="searchTerm"
+      (input)="filterTeams()"
+    />
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading teams...</div>
+
+  <ul *ngIf="!loading && teams.length">
+    <li *ngFor="let team of teams">
+      <img
+        *ngIf="team.team_logo"
+        [src]="team.team_logo"
+        alt="{{ team.team_name }} logo"
+        width="32"
+        height="32"
+      />
+      <strong>{{ team.team_name }}</strong>
+      (Team ID: <strong>{{ team.team_key }}</strong
+      >)<br />
+      <span *ngIf="team.league_key">
+        League ID: <strong>{{ team.league_key }}</strong>
+      </span>
+    </li>
+  </ul>
+
+  <div *ngIf="!loading && !teams.length">No teams found.</div>
+
+  <div *ngIf="teams.length">
+    <h3>Team ID Reference Table</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Team Name</th>
+          <th>Team ID</th>
+          <th>League ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+          <td>{{ team.team_name }}</td>
+          <td>{{ team.team_key }}</td>
+          <td>{{ team.league_key }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

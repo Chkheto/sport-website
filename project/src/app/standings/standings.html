@@ -1,0 +1,35 @@
+<div class="standings">
+  <h2>League Standings</h2>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <table *ngIf="!loading && !error && standings.length">
+    <thead>
+      <tr>
+        <th>Place</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Points For</th>
+        <th>Points Against</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of standings">
+        <td>{{ team.standing_place }}</td>
+        <td>{{ team.standing_team }}</td>
+        <td>{{ team.standing_P }}</td>
+        <td>{{ team.standing_W }}</td>
+        <td>{{ team.standing_L }}</td>
+        <td>{{ team.standing_F }}</td>
+        <td>{{ team.standing_A }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && !error && standings.length === 0">
+    No standings available.
+  </div>
+</div>
